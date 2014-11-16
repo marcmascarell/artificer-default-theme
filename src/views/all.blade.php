@@ -51,15 +51,15 @@
                     <div class="box-body">
                         {{ Form::open(array('route' => array('admin.model.filter', $model['route']), 'method' => 'post')) }}
                             <div class="row">
-                            @foreach($fields as $field)
-                                <div class="col-md-4">
+                                @foreach($fields as $field)
 
-                                        @if ($field->hasFilter())
+                                    @if ($field->hasFilter())
+                                        <div class="col-md-4">
                                             {{ Str::title($field->title) }}
-                                        @endif
-                                        {{ $field->displayFilter() }}
+                                            {{ $field->displayFilter() }}
+                                        </div>
+                                    @endif
 
-                                </div>
                                 @endforeach
                             </div>
 

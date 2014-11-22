@@ -8,12 +8,12 @@
 	<ol class="breadcrumb">
 		<li>
 			<a href="#">
-				<i class="fa fa-dashboard"></i> Dashboard
+				<i class="{{ $icon['dashboard'] }}"></i> Dashboard
 			</a>
 		</li>
 		<li>
 			<a href="#">
-				<i class="fa fa-th"></i> Models
+				<i class="{{ $icon['models'] }}"></i> Models
 			</a>
 		</li>
 		<li class="active">{{ $model['name'] }}</li>
@@ -27,11 +27,11 @@
         <div class="col-md-12 text-right main-buttons">
 
             <button class="btn btn-default" data-toggle="filter">
-                <i class="fa fa-filter"></i> Filter
+                <i class="{{ $icon['filter'] }}"></i> Filter
             </button>
 
             <a href="{{ route('admin.model.create', $model['route']) }}" class="btn btn-primary">
-                <i class="fa fa-plus"></i> New
+                <i class="{{ $icon['new'] }}"></i> New
             </a>
         </div>
     </div>
@@ -43,7 +43,7 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">
-                        <i class="fa fa-filter"></i> Filter
+                        <i class="{{ $icon['filter'] }}"></i> Filter
                         </h3>
                     </div>
 
@@ -67,7 +67,7 @@
 
                             <div class="text-right">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
+                                    <i class="{{ $icon['search'] }}"></i>
                                 </button>
                             </div>
 
@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        {{ HTML::table($model, $items, $fields, $models[$model['name']]['options'], $sort,
+        {{ HTML::table($model, $items, $fields, $models[$model['name']]['options'], $sort, $icon,
             $permit['view'],
             $permit['update'],
             $permit['delete'])

@@ -39,7 +39,7 @@
 
             <div class="text-right">
                 <a href="{{ route('admin.model.edit', array($model['route'], $fields['id']->value)) }}" class="btn btn-primary">
-                    <i class="glyphicon glyphicon-edit"></i> Edit
+                    <i class="{{ $icon['edit'] }}"></i> Edit
                 </a>
             </div>
 

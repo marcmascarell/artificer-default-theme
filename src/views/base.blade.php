@@ -7,12 +7,12 @@
 
         @section('head-styles')
             @include($theme . '.partials.head-styles')
-            <?php Event::fire('artificer.view.head-styles'); ?>
+            <?php Event::fire('artificer.view.head.styles'); ?>
         @show
 
         @section('head-scripts')
             @include($theme . '.partials.head-scripts')
-            <?php Event::fire('artificer.view.head-scripts'); ?>
+            <?php Event::fire('artificer.view.head.scripts'); ?>
         @show
 
     </head>

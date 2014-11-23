@@ -21,7 +21,7 @@
 @overwrite
 
 @section('content')
-	<?php Event::fire('artificer.before.list', $items, $halt = false); ?>
+
 
     <div class="row">
         <div class="col-md-12 text-right main-buttons">
@@ -37,6 +37,8 @@
     </div>
 
     @if (!$items->isEmpty())
+        <?php Event::fire('artificer.view.all.before.showList', array($model, $items), $halt = false); ?>
+
         <div class="row">
             <div class="col-md-12 filters">
 
@@ -84,13 +86,12 @@
             $permit['delete'])
         }}
 
-        {{--{{ Form::open(array('route' => array('admin.model.sort', $model['route'], '', ''))) }}--}}
-            {{--{{ Form::submit('Submit!', array('class' => 'hidden', 'id' => 'sort-submit')); }}--}}
-        {{--{{ Form::close() }}--}}
+        <?php Event::fire('artificer.view.all.after.showList', array($model, $items), $halt = false);  ?>
+
     @else
         {{ ucfirst(Lang::trans('artificer::general.no results')) }}
     @endif
 
-	<?php Event::fire('artificer.after.list', $items, $halt = false);  ?>
+
 @stop
 

@@ -40,7 +40,7 @@
                         <div class="form-group">
                             ({{ $field->type }})
 
-                            <?php Event::fire('artificer.before.edit.title', $field, $halt = false); ?>
+                            <?php Event::fire('artificer.view.edit.before.title', $field, $halt = false); ?>
                             {{ Form::label($field->title) }}
 
                             @if ($field->wiki)
@@ -57,10 +57,13 @@
                                 @endforeach
                             @endif
 
-                            <?php Event::fire('artificer.before.edit.output', $field, $halt = false); ?>
+                            <?php Event::fire('artificer.view.edit.before.output', $field, $halt = false); ?>
 
+                            <?php Event::fire('artificer.view.edit.field.' . $field->type . '.before.output', $field->value) ?>
                             {{ $field->output() }}
+                            <?php Event::fire('artificer.view.edit.field.' . $field->type . '.after.output', $field->value) ?>
 
+                            <?php Event::fire('artificer.view.edit.after.output', $field, $halt = false); ?>
                         </div>
 				    @endunless
 				@endforeach

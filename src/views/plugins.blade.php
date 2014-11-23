@@ -3,9 +3,11 @@
 @section('content')
 
 	<div class="row">
+
         @if (count($plugins) > 0)
 
             @if (isset($plugins['installed']))
+
                 <?php $i = 1; ?>
                 @foreach($plugins['installed'] as $plugin)
 

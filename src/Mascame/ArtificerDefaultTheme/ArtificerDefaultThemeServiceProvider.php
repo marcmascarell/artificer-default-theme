@@ -19,6 +19,8 @@ class ArtificerDefaultThemeServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('mascame/artificer-default-theme');
+
+        require_once __DIR__ . '/../../views/macros/macros.php';
 	}
 
 	/**

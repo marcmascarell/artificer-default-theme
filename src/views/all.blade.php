@@ -84,9 +84,9 @@
             $permit['delete'])
         }}
 
-        {{ Form::open(array('route' => array('admin.model.sort', $model['route'], '', ''))) }}
-            {{ Form::submit('Submit!', array('class' => 'hidden', 'id' => 'sort-submit')); }}
-        {{ Form::close() }}
+        {{--{{ Form::open(array('route' => array('admin.model.sort', $model['route'], '', ''))) }}--}}
+            {{--{{ Form::submit('Submit!', array('class' => 'hidden', 'id' => 'sort-submit')); }}--}}
+        {{--{{ Form::close() }}--}}
     @else
         {{ ucfirst(Lang::trans('artificer::general.no results')) }}
     @endif

@@ -58,6 +58,7 @@
                             @endif
 
                             <?php Event::fire('artificer.before.edit.output', $field, $halt = false); ?>
+
                             {{ $field->output() }}
 
                         </div>

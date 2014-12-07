@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="box-body">
-                        {{ Form::open(array('route' => array('admin.model.filter', $model['route']), 'method' => 'post')) }}
+                        {{ Form::open(array('route' => array('admin.model.filter', $model['route']), 'method' => 'get')) }}
                             <div class="row">
                                 @foreach($fields as $field)
 

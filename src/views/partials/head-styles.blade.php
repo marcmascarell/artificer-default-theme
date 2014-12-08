@@ -1,10 +1,11 @@
 <!-- bootstrap 3.0.2 -->
-<link href="{{ asset('packages/mascame/artificer-default-theme/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+{{--<link href="{{ asset('packages/mascame/artificer-default-theme/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />--}}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <!-- font Awesome -->
 <!--        <link href="{{ asset('packages/mascame/artificer-default-theme/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />-->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- Ionicons -->
-<link href="{{ asset('packages/mascame/artificer-default-theme/css/ionicons.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 <!-- Morris chart -->
 <!--	<link href="{{ asset('packages/mascame/artificer-default-theme/css/morris/morris.css') }}" rel="stylesheet" type="text/css" />-->
 <!-- jvectormap -->

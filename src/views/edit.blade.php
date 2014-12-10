@@ -38,10 +38,13 @@
 				@foreach ($fields as $field)
                     @unless ( $field->isHidden() || (Route::currentRouteName() == 'admin.model.create' && $field->name == 'id'))
                         <div class="form-group">
-                            ({{ $field->type }})
+                            @if (App::environment() != 'production')
+                                ({{ $field->type }})
+                            @endif
 
                             <?php Event::fire('artificer.view.edit.before.title', $field, $halt = false); ?>
                             {{ Form::label($field->title) }}
+                            <?php Event::fire('artificer.view.edit.after.title', $field, $halt = false); ?>
 
                             @if ($field->wiki)
                                 <div class="well well-sm">

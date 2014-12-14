@@ -21,6 +21,4 @@
 
 <link href="{{ asset('packages/mascame/artificer-default-theme/style.css') }}" rel="stylesheet" type="text/css" />
 
-<link href="{{ asset('packages/mascame/artificer/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" />
-
 

@@ -16,7 +16,7 @@
         @show
 
     </head>
-    <body class="skin-blue fixed">
+    <body class="skin-blue fixed @if ($standalone) {{ "standalone" }} @else {{ "full-view" }} @endif">
         <!-- header logo: style can be found in header.less -->
         @section('header')
             <header class="header">

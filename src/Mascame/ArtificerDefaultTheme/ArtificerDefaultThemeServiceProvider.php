@@ -20,7 +20,8 @@ class ArtificerDefaultThemeServiceProvider extends ServiceProvider {
 	{
 		$this->package('mascame/artificer-default-theme');
 
-        require_once __DIR__ . '/../../views/macros/macros.php';
+        require_once __DIR__ . '/../../views/macros/table.php';
+        require_once __DIR__ . '/../../views/macros/field.php';
 	}
 
 	/**

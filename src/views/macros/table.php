@@ -44,10 +44,6 @@ function getSortIcon($table_name, $sort)
 	return null;
 }
 
-//Event::listen('sort', function($model) {
-//   print 'data-sort-url="' . URL::route("admin.model.sort", array($model['route'], 'replace_old_id', 'replace_new_id')) . '"';
-//});
-
 HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort,
                                $showView = true, $showEdit = true, $showDelete = true ) {
 	?>

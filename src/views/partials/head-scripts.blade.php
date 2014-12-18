@@ -34,7 +34,7 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{--<script src="{{ asset('packages/mascame/artificer-default-theme/js/AdminLTE/dashboard.js') }}" type="text/javascript"></script>--}}
-{{--<script src="{{ asset('packages/mascame/artificer-default-theme/js/moment-with-locales.min.js') }}" type="text/javascript"></script>--}}
+
 
 <script src="{{ asset('packages/mascame/artificer/core/restfulizer.js') }}"></script>
 <script src="{{ asset('packages/mascame/artificer-default-theme/js/artificer.js') }}"></script>

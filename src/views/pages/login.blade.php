@@ -6,11 +6,11 @@
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
         <!-- bootstrap 3.0.2 -->
-        <link href="{{ asset('packages/mascame/artificer/themes/admin-lte-custom/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('packages/mascame/artificer-default-theme/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->
-        <link href="{{ asset('packages/mascame/artificer/themes/admin-lte-custom/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('packages/mascame/artificer-default-theme/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
-        <link href="{{ asset('packages/mascame/artificer/themes/admin-lte-custom/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('packages/mascame/artificer-default-theme/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
 
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

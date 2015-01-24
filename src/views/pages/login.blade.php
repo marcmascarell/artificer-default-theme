@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="footer">                                                               
-                    <button type="submit" class="btn bg-olive btn-block">Sign me in</button>  
+                    <button type="submit" class="btn bg-light-blue btn-block">Sign me in</button>
                     
                     {{--<p><a href="#">I forgot my password</a></p>--}}
                     {{----}}

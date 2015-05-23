@@ -12,7 +12,7 @@
 	This page is a helper guide.
 
 	<h2>Models</h2>
-	Models found ({{ count($models) }} in <b>{{ join(', ', \Mascame\Artificer\Options\AdminOption::get('models.directories')) }}</b>):
+	Models found (<b>{{ count($models) }}</b> in <b>{{ join(', ', \Mascame\Artificer\Options\AdminOption::get('models.directories')) }}</b>):
 	<br>
 	<i>Config location: app/config/packages/mascame/artificer/models.php</i>
 
@@ -38,6 +38,7 @@
 	</ul>
 
 	<h2>Plugins</h2>
+
 		@if (count($plugins) > 0)
 			<ul>
 				@foreach(array_merge($plugins['installed'], $plugins['uninstalled']) as $plugin)

@@ -27,7 +27,7 @@
     <li>
         <a href="{{ URL::route('admin.logout') }}"  style="display: inline-block">
             <i class="fa fa-sign-out"></i>
-            Logout
+			{{ ucfirst(Lang::trans('artificer::general.logout')) }}
         </a>
     </li>
 <!-- Messages: style can be found in dropdown.less-->

@@ -8,12 +8,12 @@
 	<ol class="breadcrumb">
 		<li>
 			<a href="#">
-				<i class="{{ $icon['dashboard'] }}"></i> Dashboard
+				<i class="{{ $icon['dashboard'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.dashboard')) }}
 			</a>
 		</li>
 		<li>
 			<a href="#">
-				<i class="{{ $icon['models'] }}"></i> Models
+				<i class="{{ $icon['models'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.models')) }}
 			</a>
 		</li>
 		<li class="active">{{ $model['name'] }}</li>
@@ -27,11 +27,11 @@
         <div class="col-md-12 text-right main-buttons">
 
             <button class="btn btn-default" data-toggle="filter">
-                <i class="{{ $icon['filter'] }}"></i> Filter
+                <i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.filter')) }}
             </button>
 
             <a href="{{ route('admin.model.create', $model['route']) }}" class="btn btn-primary">
-                <i class="{{ $icon['new'] }}"></i> New
+                <i class="{{ $icon['new'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.new')) }}
             </a>
         </div>
     </div>
@@ -45,7 +45,7 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">
-                        <i class="{{ $icon['filter'] }}"></i> Filter
+                        <i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.filter')) }}
                         </h3>
                     </div>
 

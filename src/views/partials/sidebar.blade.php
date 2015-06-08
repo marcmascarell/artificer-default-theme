@@ -22,12 +22,12 @@
 <!-- sidebar menu: : style can be found in sidebar.less -->
 <ul class="sidebar-menu">
 
-	@foreach ($menu as $m)
+	@foreach ($menu as $menuItem)
 	<li class="">
-		<a href="{{ URL::to($m['link']) }}">
-			{{ $m['icon'] }}
+		<a href="{{ URL::to($menuItem['link']) }}">
+			{{ $menuItem['icon'] }}
 			<span>
-				{{ $m['title'] }}
+				{{ $menuItem['title'] }}
 			</span>
 		</a>
 	</li>
@@ -41,16 +41,16 @@
 		</a>
 		<ul class="treeview-menu">
 
-			@foreach ($models as $m)
+			@foreach ($models as $model)
 
-			    @if (!$m['hidden'])
+			    @if ( ! $model['hidden'])
                     <li>
-                        <a href="{{ route('admin.model.all', array('slug' => $m['route'])) }}">
+                        <a href="{{ route('admin.model.all', array('slug' => $model['route'])) }}">
                             <i class="fa fa-angle-right"></i>
-                            @if (isset($m['options']['title']))
-                                {{ $m['options']['title'] }}
+                            @if (isset($model['options']['title']))
+                                {{ $model['options']['title'] }}
                             @else
-                                {{ Str::title($m['table']) }}
+                                {{ Str::title($model['table']) }}
                             @endif
                         </a>
                     </li>

@@ -24,7 +24,7 @@
 
 	@foreach ($menu as $menuItem)
 	<li class="">
-		<a href="{{ URL::to($menuItem['link']) }}">
+		<a href="{{ URL::route($menuItem['route']) }}">
 			{{ $menuItem['icon'] }}
 			<span>
 				{{ $menuItem['title'] }}

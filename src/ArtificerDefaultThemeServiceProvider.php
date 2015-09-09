@@ -4,7 +4,9 @@ use Illuminate\Support\ServiceProvider;
 
 class ArtificerDefaultThemeServiceProvider extends ServiceProvider {
 
-	/**
+    protected $name = 'artificer-default-theme';
+
+    /**
 	 * Indicates if loading of the provider is deferred.
 	 *
 	 * @var bool
@@ -18,10 +20,14 @@ class ArtificerDefaultThemeServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('mascame/artificer-default-theme');
+        require_once __DIR__ . '/../resources/views/macros/table.php';
+        require_once __DIR__ . '/../resources/views/macros/field.php';
 
-        require_once __DIR__ . '/../../views/macros/table.php';
-        require_once __DIR__ . '/../../views/macros/field.php';
+		$this->loadViewsFrom(__DIR__.'/../resources/views', $this->name);
+
+        $this->publishes([
+            __DIR__.'/../public' => public_path('packages/mascame/' . $this->name),
+        ], 'public');
 	}
 
 	/**

@@ -25,7 +25,7 @@
         <div class="form-box" id="login-box">
             <div class="header">Sign In</div>
 
-            {{ Form::open(array('action' => 'Mascame\Artificer\UserController@login')) }}
+            {!! Form::open(array('action' => '\Mascame\Artificer\Http\Controllers\UserController@login')) !!}
                 <div class="body bg-gray">
 
                     @if($errors->has())
@@ -35,11 +35,11 @@
                     @endif
 
                     <div class="form-group">
-                        {{ Form::text('username', null, array('class' => 'form-control', 'placeholder' => 'User')) }}
+                        {!! Form::text('username', null, array('class' => 'form-control', 'placeholder' => 'User')) !!}
 
                     </div>
                     <div class="form-group">
-                        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
+                        {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
                     </div>
 
                     {{--<div class="form-group">--}}
@@ -55,7 +55,7 @@
                     {{--<a href="register.html" class="text-center">Register a new membership</a>--}}
                 </div>
 
-            {{ Form::close() }}
+            {!! Form::close() !!}
 
             {{--<div class="margin text-center">--}}
                 {{--<span>Sign in using social networks</span>--}}

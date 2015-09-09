@@ -25,7 +25,7 @@
 	@foreach ($menu as $menuItem)
 	<li class="">
 		<a href="{{ URL::route($menuItem['route']) }}">
-			{{ $menuItem['icon'] }}
+			{!! $menuItem['icon'] !!}
 			<span>
 				{{ $menuItem['title'] }}
 			</span>
@@ -50,7 +50,7 @@
                             @if (isset($model['options']['title']))
                                 {{ $model['options']['title'] }}
                             @else
-                                {{ Str::title($model['table']) }}
+                                {{ \Illuminate\Support\Str::title($model['table']) }}
                             @endif
                         </a>
                     </li>

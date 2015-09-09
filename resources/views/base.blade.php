@@ -47,7 +47,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content">
                     <div class="notifications">
-                        {{ Notify::all(); }}
+{{--                        {{ \Mascame\Notify\Notify::all() }}--}}
                     </div>
 
 					@yield('content')

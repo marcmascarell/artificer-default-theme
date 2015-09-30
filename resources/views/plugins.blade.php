@@ -73,7 +73,7 @@
                 <?php $i++ ?>
             @empty
                 <div class="col-md-12">
-                    {{ ucfirst(Lang::trans('artificer::general.no results')) }}
+                    {{ ucfirst(Lang::trans('admin::general.no results')) }}
                 </div>
             @endforelse
 

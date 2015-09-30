@@ -36,7 +36,7 @@
 {{--<script src="{{ asset('packages/mascame/artificer-default-theme/js/AdminLTE/dashboard.js') }}" type="text/javascript"></script>--}}
 
 
-<script src="{{ asset('packages/mascame/artificer/core/restfulizer.js') }}"></script>
+<script src="{{ asset('packages/mascame/admin/core/restfulizer.js') }}"></script>
 <script src="{{ asset('packages/mascame/artificer-default-theme/js/artificer.js') }}"></script>
 
 <!-- AdminLTE for demo purposes -->

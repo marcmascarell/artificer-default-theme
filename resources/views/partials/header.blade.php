@@ -29,7 +29,7 @@
             <li>
                 <a href="{{ URL::route('admin.logout') }}"  style="display: inline-block">
                     <i class="fa fa-sign-out"></i>
-                    {{ ucfirst(Lang::trans('artificer::general.logout')) }}
+                    {{ ucfirst(Lang::trans('admin::general.logout')) }}
                 </a>
             </li>
         </ul>

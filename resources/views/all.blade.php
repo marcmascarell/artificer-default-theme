@@ -8,12 +8,12 @@
 	<ol class="breadcrumb">
 		<li>
 			<a href="#">
-				<i class="{{ $icon['dashboard'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.dashboard')) }}
+				<i class="{{ $icon['dashboard'] }}"></i> {{ ucfirst(Lang::trans('admin::general.dashboard')) }}
 			</a>
 		</li>
 		<li>
 			<a href="#">
-				<i class="{{ $icon['models'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.models')) }}
+				<i class="{{ $icon['models'] }}"></i> {{ ucfirst(Lang::trans('admin::general.models')) }}
 			</a>
 		</li>
 		<li class="active">{{ $model['name'] }}</li>
@@ -27,11 +27,11 @@
         <div class="col-md-12 text-right main-buttons">
 
             <button class="btn btn-default" data-toggle="filter">
-                <i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.filter')) }}
+                <i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('admin::general.filter')) }}
             </button>
 
             <a href="{{ route('admin.model.create', $model['route']) }}" class="btn btn-primary">
-                <i class="{{ $icon['new'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.new')) }}
+                <i class="{{ $icon['new'] }}"></i> {{ ucfirst(Lang::trans('admin::general.new')) }}
             </a>
         </div>
     </div>
@@ -45,25 +45,24 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">
-                        <i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('artificer::general.filter')) }}
+                        <i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('admin::general.filter')) }}
                         </h3>
                     </div>
 
                     <div class="box-body">
-                        {{ Form::open(array('route' => array('admin.model.filter', $model['route']), 'method' => 'get')) }}
+                        {!! Form::open(array('route' => array('admin.model.filter', $model['route']), 'method' => 'get')) !!}
                             <div class="row">
                                 @foreach($fields as $field)
 
                                     @if ($field->hasFilter())
                                         <div class="col-md-4">
-                                            {{ Str::title($field->title) }}
-                                            {{ $field->displayFilter() }}
+                                            {{ \Illuminate\Support\Str::title($field->title) }}
+                                            {!! $field->displayFilter() !!}
                                         </div>
                                     @endif
 
                                 @endforeach
                             </div>
-
 
                             <br>
 
@@ -73,7 +72,7 @@
                                 </button>
                             </div>
 
-                        {{ Form::close() }}
+                        {!! Form::close() !!}
                     </div>
                 </div>
 
@@ -89,7 +88,7 @@
         <?php Event::fire('artificer.view.all.after.showList', array($model, $items), $halt = false);  ?>
 
     @else
-        {{ ucfirst(Lang::trans('artificer::general.no results')) }}
+        {{ ucfirst(Lang::trans('admin::general.no results')) }}
     @endif
 
 

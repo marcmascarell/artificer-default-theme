@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Paginator;
+use Illuminate\Pagination\Paginator;
 use \Mascame\Artificer\Options\AdminOption;
 
 function isHidden($key, $hidden)
@@ -49,8 +49,9 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 	?>
 	<div class="table-responsive">
 		<table class="table table-bordered table-striped datatable"
-			   data-page="<?= Paginator::getCurrentPage() ?>"
 			   data-start="<?= $data[0]->sort_id ?>" <?php Event::fire('artificer.view.all.tabletag.data', array($model)); ?>>
+<!--			data-page="-<\?//= Paginator::getCurrentPage() ?><!--"-->
+
 			<thead>
 			<tr>
 				<?php foreach ($fields as $field) {
@@ -58,7 +59,7 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 						?>
 						<th>
 							<a href="<?= URL::current() . '?' . http_build_query(getSort($field->name, $sort)) ?>">
-								<?= Str::title($field->title) ?>
+								<?= \Illuminate\Support\Str::title($field->title) ?>
 
 								<?= getSortIcon($field->name, $sort) ?>
 							</a>

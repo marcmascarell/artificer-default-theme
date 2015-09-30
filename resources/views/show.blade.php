@@ -29,7 +29,7 @@
                         </li>
 
                         <li class="list-group-item">
-                            {{ $field->show() }}
+                            {!! $field->show() !!}
                         </li>
                     </ul>
 

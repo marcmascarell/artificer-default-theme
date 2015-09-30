@@ -25,7 +25,7 @@
 		<div class="col-md-offset-2 col-md-8">
 			<!--array('Mascame\Artificer\Controller@update', array('slug' => $model['route'], 'id' => $items->id))-->
 
-			{{ Form::model($items, array(
+			{!! Form::model($items, array(
                 'route' => array($form_action_route, $model['route'], $items->id),
                 'class' => "NO-form-inline dropzone",
                 'id' => 'admin-form',
@@ -33,7 +33,7 @@
                 'files' => true,
                 'data-file-upload' => URL::route("admin.model.upload", array($model["route"], \Mascame\Artificer\Artificer::getCurrentModelId($items)))
                 )
-			); }}
+			) !!}
 
 				@foreach ($fields as $field)
                     @unless ( $field->isHidden() || (Route::currentRouteName() == 'admin.model.create' && $field->name == 'id'))
@@ -52,7 +52,7 @@
 {{--                    {{ Form::submit('Desar i continuar editant', array('class' => "btn btn-default", "name" => "_continue")) }}--}}
                 </div>
 
-			{{ Form::close() }}
+			{!! Form::close() !!}
 		</div>
 	</div>
 

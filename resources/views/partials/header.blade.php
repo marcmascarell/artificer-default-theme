@@ -16,13 +16,13 @@
     <div class="navbar-right">
 
         <ul class="nav navbar-nav">
-            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-            <li class="dropdown messages-menu">
-                <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
-                    {{{ $properties['native'] }}}
-                </a>
-            </li>
-            @endforeach
+            {{--@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+            {{--<li class="dropdown messages-menu">--}}
+                {{--<a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">--}}
+                    {{--{{{ $properties['native'] }}}--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--@endforeach--}}
         </ul>
 
         <ul class="nav navbar-nav">

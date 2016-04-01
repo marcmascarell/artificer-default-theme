@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    @if (!$items->isEmpty())
+    @if ( ! $items->isEmpty())
         <?php Event::fire('artificer.view.all.before.showList', array($model, $items), $halt = false); ?>
 
         <div class="row">
@@ -50,13 +50,13 @@
                     </div>
 
                     <div class="box-body">
-                        {!! Form::open(array('route' => array('admin.model.filter', $model['route']), 'method' => 'get')) !!}
+                        {!! \Form::open(array('route' => array('admin.model.filter', $model['route']), 'method' => 'get')) !!}
                             <div class="row">
                                 @foreach($fields as $field)
 
                                     @if ($field->hasFilter())
                                         <div class="col-md-4">
-                                            {{ \Illuminate\Support\Str::title($field->title) }}
+                                            {{ $field->title }}
                                             {!! $field->displayFilter() !!}
                                         </div>
                                     @endif
@@ -80,7 +80,7 @@
         </div>
 
         {{ HTML::table($model, $items, $fields, $models[$model['name']]['options'], $sort, $icon,
-            $permit['view'],
+            $permit['read'],
             $permit['update'],
             $permit['delete'])
         }}

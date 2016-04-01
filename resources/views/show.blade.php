@@ -15,11 +15,9 @@
             <ul class="list-group">
                 <li class="list-group-item">
                 @foreach ($fields as $field)
-
-
                     <ul class="list-group">
                         <li class="list-group-item">
-                            ({{ $field->type }})
+                            ({{ $field->getType() }})
                         </li>
 
                         <li class="list-group-item">

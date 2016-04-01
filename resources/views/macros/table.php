@@ -2,6 +2,7 @@
 
 use Illuminate\Pagination\Paginator;
 use \Mascame\Artificer\Options\AdminOption;
+use Collective\Html\HtmlBuilder as HTML;
 
 function isHidden($key, $hidden)
 {
@@ -54,8 +55,12 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 
 			<thead>
 			<tr>
-				<?php foreach ($fields as $field) {
-					if ($field->isListed() && !($field->isHiddenList())) {
+				<?php
+				/**
+				 * @var $field \Mascame\Artificer\Fields\Field
+				 */
+				foreach ($fields as $field) {
+					if ($field->isListable()) {
 						?>
 						<th>
 							<a href="<?= URL::current() . '?' . http_build_query(getSort($field->name, $sort)) ?>">
@@ -82,16 +87,21 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 				?>
 				<tr data-id="<?= $d->id ?>" data-sort-id="<?= $d->sort_id ?>">
 
-					<?php foreach (array_keys($fields) as $key) {
-						if ($fields[$key]->isListed() && !($fields[$key]->isHiddenList())) {
+					<?php foreach (array_keys($fields) as $name) {
+						/**
+						 * @var $field \Mascame\Artificer\Fields\Field
+						 */
+						$field = $fields[$name];
+
+						if ($field->isListable()) {
 							?>
 							<td>
 								<?php
-								if ($fields[$key]->isRelation()) {
-									$method = $fields[$key]->relation->getMethod();
-									$fields[$key]->display($d->$method);
+								if ($field->isRelation()) {
+									$method = $field->relation->getMethod();
+									$field->show($d->$method);
 								} else {
-									print $fields[$key]->display($d->$key);
+									print $field->show($d->$name);
 								}
 								?>
 							</td>

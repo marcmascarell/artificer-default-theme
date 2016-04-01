@@ -45,7 +45,7 @@
 
                 <div class="text-right">
                     <button class="btn btn-primary" name="_save" type="submit" value="Desar">
-                        <i class="{{ $icon['save'] }}"></i> Desar
+                        <i class="{{ $icon['save'] }}"></i> Save
                     </button>
                     {{--{{ Form::submit('Desar', array('class' => "btn btn-primary", "name" => "_save")) }}--}}
                     {{--{{ Form::submit('Desar i afegir-ne un de nou', array('class' => "btn btn-default", "name" => "_addanother")) }}--}}

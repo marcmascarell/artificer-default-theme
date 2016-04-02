@@ -15,22 +15,23 @@
             <ul class="list-group">
                 <li class="list-group-item">
                 @foreach ($fields as $field)
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            ({{ $field->getType() }})
-                        </li>
+                    @if ($field->isListable())
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                ({{ $field->getType() }})
+                            </li>
 
-                        <li class="list-group-item">
-                            <strong>
-                                {{ $field->name }}
-                            </strong>
-                        </li>
+                            <li class="list-group-item">
+                                <strong>
+                                    {{ $field->getTitle() }}
+                                </strong>
+                            </li>
 
-                        <li class="list-group-item">
-                            {!! $field->show() !!}
-                        </li>
-                    </ul>
-
+                            <li class="list-group-item">
+                                {!! $field->show($item[$field->getName()]) !!}
+                            </li>
+                        </ul>
+                    @endif
                 @endforeach
                 </li>
             </ul>

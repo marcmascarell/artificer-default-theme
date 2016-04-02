@@ -36,11 +36,9 @@
 			) !!}
 
 				@foreach ($fields as $field)
-                    @unless ( $field->isHidden() || (Route::currentRouteName() == 'admin.model.create' && $field->name == 'id'))
-
+                    @if ( $field->isListable())
                         {{ HTML::field($field, $icon, $errors) }}
-
-				    @endunless
+				    @endif
 				@endforeach
 
                 <div class="text-right">

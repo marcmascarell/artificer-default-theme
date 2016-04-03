@@ -57,7 +57,7 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 			<tr>
 				<?php
 				/**
-				 * @var $field \Mascame\Artificer\Fields\Field
+				 * @var $field \Mascame\Artificer\Fields\FieldWrapper
 				 */
 				foreach ($fields as $field) {
 					if ($field->isListable()) {
@@ -89,7 +89,7 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 
 					<?php foreach (array_keys($fields) as $name) {
 						/**
-						 * @var $field \Mascame\Artificer\Fields\Field
+						 * @var $field \Mascame\Artificer\Fields\FieldWrapper
 						 */
 						$field = $fields[$name];
 

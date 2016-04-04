@@ -47,11 +47,7 @@
                     <li>
                         <a href="{{ route('admin.model.all', array('slug' => $model['route'])) }}">
                             <i class="fa fa-angle-right"></i>
-                            @if (isset($model['options']['title']))
-                                {{ $model['options']['title'] }}
-                            @else
-                                {{ \Illuminate\Support\Str::title($model['table']) }}
-                            @endif
+							{{ $model['title'] }}
                         </a>
                     </li>
                 @endif

@@ -5,27 +5,27 @@
     <div class="box">
         <div class="box-header">
 
-            @if ($plugin->thumbnail)
-                <img src="{{ $plugin->thumbnail }}" alt="" class="img-responsive" height="200">
+            @if ($extension->thumbnail)
+                <img src="{{ $extension->thumbnail }}" alt="" class="img-responsive" height="200">
             @endif
 
             <h3 class="box-title">
-                {{ $plugin->name }}
+                {{ $extension->name }}
             </h3>
 
             <div class="box-tools pull-right">
-                @if (isset($plugin->routes) && !empty($plugin->routes))
-                    @foreach ($plugin->routes as $key => $value)
+                @if (isset($extension->routes) && !empty($extension->routes))
+                    @foreach ($extension->routes as $key => $value)
                         <a href="{{ $value['route'] }}" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
                             {{ $value['title'] }}
                         </a>
                     @endforeach
                 @endif
 
-                @if ($plugin->isInstalled())
-                    <a href="{{ route('admin.page.plugin.uninstall', $plugin->slug) }}" class="btn btn-danger btn-md">Uninstall</a>
+                @if ($extension->isInstalled())
+                    <a href="{{ route('admin.'.$type.'.uninstall', $extension->slug) }}" class="btn btn-danger btn-md">Uninstall</a>
                 @else
-                    <a href="{{ route('admin.page.plugin.install', $plugin->slug) }}" class="btn btn-default btn-md">Install</a>
+                    <a href="{{ route('admin.'.$type.'.install', $extension->slug) }}" class="btn btn-default btn-md">Install</a>
                 @endif
 
             </div>
@@ -33,7 +33,7 @@
 
         <div class="box-body">
             <p>
-                {{ $plugin->description }}
+                {{ $extension->description }}
             </p>
         </div><!-- /.box-body -->
 
@@ -53,8 +53,8 @@
 
                 <tbody>
                 <tr>
-                    <td>{{ $plugin->version }}</td>
-                    <td>{{ $plugin->author }}</td>
+                    <td>{{ $extension->version }}</td>
+                    <td>{{ $extension->author }}</td>
                 </tr>
                 </tbody>
             </table>

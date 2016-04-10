@@ -8,12 +8,12 @@
             <h2>Installed</h2>
         </div>
 
-        @if (isset($plugins['installed']))
+        @if (isset($extensions['installed']))
 
             <?php $i = 1; ?>
-            @forelse($plugins['installed'] as $plugin)
+            @forelse($extensions['installed'] as $extension)
 
-                @include($theme . '.partials._plugin')
+                @include($theme . '.partials._extension')
 
                 @if($i % 3 == 0)
                     <div class="clearfix visible-md-block"></div>
@@ -35,11 +35,11 @@
             <h2>Not installed</h2>
         </div>
 
-        @if (isset($plugins['uninstalled']))
+        @if (isset($extensions['uninstalled']))
             <?php $i = 1; ?>
-            @foreach($plugins['uninstalled'] as $plugin)
+            @foreach($extensions['uninstalled'] as $extension)
 
-                @include($theme . '.partials._plugin')
+                @include($theme . '.partials._extension')
 
                 @if ($i % 3 == 0)
                     <div class="clearfix visible-md-block"></div>

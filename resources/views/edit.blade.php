@@ -24,6 +24,7 @@
 	<div class="row">
 		<div class="col-md-offset-2 col-md-8">
 			<!--array('Mascame\Artificer\Controller@update', array('slug' => $model['route'], 'id' => $items->id))-->
+            {{--'data-file-upload' => URL::route("admin.model.upload", array($model["route"], \Mascame\Artificer\Artificer::getCurrentModelId($items)))--}}
 
 			{!! Form::model($items, array(
                 'route' => array($form_action_route, $model['route'], $items->id),
@@ -31,7 +32,6 @@
                 'id' => 'admin-form',
                 'method' => $form_method,
                 'files' => true,
-                'data-file-upload' => URL::route("admin.model.upload", array($model["route"], \Mascame\Artificer\Artificer::getCurrentModelId($items)))
                 )
 			) !!}
 

@@ -1,8 +1,8 @@
-<?php namespace Mascame\ArtificerDefaultTheme;
+<?php namespace Mascame\Artificer;
 
 use Illuminate\Support\ServiceProvider;
 
-class ArtificerDefaultThemeServiceProvider extends ServiceProvider {
+class DefaultThemeServiceProvider extends ServiceProvider {
 
     protected $name = 'artificer-default-theme';
 

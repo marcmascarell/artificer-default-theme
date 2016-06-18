@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mascame\\ArtificerDefaultTheme\\": "src/"
+            "Mascame\\Artificer\\": "src/"
         }
     },
     "minimum-stability": "stable"

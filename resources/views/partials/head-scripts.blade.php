@@ -20,7 +20,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('packages/mascame/artificer-default-theme/js/AdminLTE/app.js') }}" type="text/javascript"></script>
 
-<script src="{{ asset('packages/mascame/admin/core/restfulizer.js') }}"></script>
+<script src="{{ asset('packages/mascame/admin/js/core/restfulizer.js') }}"></script>
 <script src="{{ asset('packages/mascame/artificer-default-theme/js/artificer.js') }}"></script>
 
 @endif

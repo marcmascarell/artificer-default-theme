@@ -4,6 +4,8 @@ use Illuminate\Support\ServiceProvider;
 
 class DefaultThemeServiceProvider extends ServiceProvider {
 
+	use AutoPublishable;
+	
     protected $name = 'artificer-default-theme';
 
     /**
@@ -37,7 +39,11 @@ class DefaultThemeServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		// We need the config loaded before we can use this package!
+		if (! $this->isPublished(public_path('packages/mascame/' . $this->name))) {
+			$this->autoPublish();
+			return;
+		}
 	}
 
 	/**

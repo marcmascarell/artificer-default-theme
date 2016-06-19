@@ -27,7 +27,7 @@ function getSort($table_name, $sort)
 		}
 	}
 
-	return array('sort_by' => $sort_table, 'direction' => $sort_dir, 'page' => Input::get('page'));
+	return array('sort_by' => $sort_table, 'direction' => $sort_dir, 'page' => \Illuminate\Support\Facades\Input::get('page'));
 }
 
 function getSortIcon($table_name, $sort)

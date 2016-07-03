@@ -36,7 +36,7 @@
 			) !!}
 
 				@foreach ($fields as $field)
-                    @if ( $field->isListable())
+                    @if ( $field->isVisible())
                         {{ HTML::field($field, $icon, $errors) }}
 				    @endif
 				@endforeach

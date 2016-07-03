@@ -15,7 +15,7 @@
             <ul class="list-group">
                 <li class="list-group-item">
                 @foreach ($fields as $field)
-                    @if ($field->isListable())
+                    @if ($field->isVisible())
                         <ul class="list-group">
                             <li class="list-group-item">
                                 ({{ $field->getType() }})

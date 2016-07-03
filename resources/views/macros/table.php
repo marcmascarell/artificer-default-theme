@@ -60,7 +60,7 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 				 * @var $field \Mascame\Artificer\Fields\FieldWrapper
 				 */
 				foreach ($fields as $field) {
-					if ($field->isListable()) {
+					if ($field->isVisible()) {
 						?>
 						<th>
 							<a href="<?= URL::current() . '?' . http_build_query(getSort($field->name, $sort)) ?>">
@@ -93,7 +93,7 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 						 */
 						$field = $fields[$name];
 
-						if ($field->isListable()) {
+						if ($field->isVisible()) {
 							?>
 							<td>
 								<?php

@@ -21,4 +21,5 @@
 
 <link href="{{ asset('packages/mascame/artificer-default-theme/style.css') }}" rel="stylesheet" type="text/css" />
 
-
+{{-- Extensions assets --}}
+{!! \Assets::css() !!}

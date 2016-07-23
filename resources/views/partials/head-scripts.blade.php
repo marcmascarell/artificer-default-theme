@@ -27,7 +27,7 @@
     <script src="{{ asset('packages/mascame/admin/js/core/restfulizer.js') }}"></script>
     <script src="{{ asset('packages/mascame/artificer-default-theme/js/artificer.js') }}"></script>
 
-    {{-- Artificer assets --}}
-    {{ \Mascame\Artificer\Artificer::assets() }}
+    {{-- Extensions assets --}}
+    {!! \Assets::js() !!}
 
 @endif

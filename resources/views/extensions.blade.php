@@ -12,7 +12,10 @@
                 @include($theme . '.partials._extension')
 
                 @if($i % 3 == 0)
-                    <div class="clearfix visible-md-block"></div>
+                    <div class="clearfix
+                    visible-sm-block
+                    visible-md-block
+                    visible-lg-block"></div>
                 @endif
                 <?php $i++ ?>
             @empty

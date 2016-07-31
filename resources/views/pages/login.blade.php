@@ -25,7 +25,7 @@
         <div class="form-box" id="login-box">
             <div class="header">Sign In</div>
 
-            {!! Form::open(array('action' => '\Mascame\Artificer\Http\Controllers\UserController@login')) !!}
+            {!! Form::open(array('route' => 'admin.login')) !!}
                 <div class="body bg-gray">
 
                     @if($errors->has())
@@ -35,7 +35,7 @@
                     @endif
 
                     <div class="form-group">
-                        {!! Form::text('username', null, array('class' => 'form-control', 'placeholder' => 'User')) !!}
+                        {!! Form::text('username', null, array('class' => 'form-control', 'placeholder' => 'Username or email')) !!}
 
                     </div>
                     <div class="form-group">

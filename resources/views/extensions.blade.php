@@ -7,7 +7,11 @@
         @if (! empty($packages))
 
             <?php $i = 1; ?>
-            @forelse($packages as $package)
+            @forelse($packages as $packageName => $package)
+
+                @if (\Mascame\Artificer\Artificer::isCoreExtension($packageName))
+                    @continue
+                @endif
 
                 @include($theme . '.partials._extension')
 

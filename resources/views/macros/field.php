@@ -31,7 +31,7 @@ HTML::macro('field', function ($field, $icon, $errors = false) {
 
 		<?php Event::fire('artificer.view.edit.field.' . $field->type . '.before.output', $field->value) ?>
 
-		<?= $field->output() ?>
+		<?= $field->withWidgets()->output() ?>
 
 		<?php Event::fire('artificer.view.edit.field.' . $field->type . '.after.output', $field->value) ?>
 

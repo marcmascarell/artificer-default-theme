@@ -5,15 +5,10 @@
         <title>{{ $main_title }}</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-        @section('head-styles')
-            @include($theme . '.partials.head-styles')
-            <?php Event::fire('artificer.view.head.styles'); ?>
-        @show
-
-        @section('head-scripts')
-            @include($theme . '.partials.head-scripts')
-            <?php Event::fire('artificer.view.head.scripts'); ?>
-        @show
+        @if (! $standalone)
+            {!! \Assets::css() !!}
+            {!! \Assets::js() !!}
+        @endif
 
     </head>
     <body class="skin-blue fixed @if ($standalone) {{ "standalone" }} @else {{ "full-view" }} @endif">

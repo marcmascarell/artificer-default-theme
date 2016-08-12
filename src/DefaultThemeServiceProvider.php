@@ -30,6 +30,17 @@ class DefaultThemeServiceProvider extends ServiceProvider {
         $this->publishes([
             __DIR__.'/../public' => public_path('packages/mascame/' . $this->name),
         ], 'public');
+
+        Artificer::assetManager()->add([
+            '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css',
+            '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css',
+            'packages/mascame/artificer-default-theme/css/AdminLTE.css',
+            'packages/mascame/artificer-default-theme/style.css',
+
+            'packages/mascame/artificer-default-theme/js/bootstrap.min.js',
+            'packages/mascame/artificer-default-theme/js/AdminLTE/app.js',
+            'packages/mascame/artificer-default-theme/js/artificer.js',
+        ]);
 	}
 
 	/**

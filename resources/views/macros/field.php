@@ -4,7 +4,8 @@ HTML::macro('field', function ($field, $icon, $errors = false) {
 	?>
 	<div class="form-group <?= ($errors->has($field->name)) ? 'has-error' : ''; ?>">
 		<?php if (App::environment() != 'production') {
-			print '(' . $field->type . ')';
+//			print '(' . $field->type . ') > ';
+//			print ($field->isFillable()) ? 'fillable' : 'not-fillable';
 		} ?>
 
 		<?php Event::fire('artificer.view.edit.before.title', $field, $halt = false); ?>
@@ -31,7 +32,7 @@ HTML::macro('field', function ($field, $icon, $errors = false) {
 
 		<?php Event::fire('artificer.view.edit.field.' . $field->type . '.before.output', $field->value) ?>
 
-		<?= $field->withWidgets()->output() ?>
+		<?= $field->protectGuarded()->withWidgets()->output() ?>
 
 		<?php Event::fire('artificer.view.edit.field.' . $field->type . '.after.output', $field->value) ?>
 

@@ -2,7 +2,7 @@
 
 HTML::macro('field', function ($field, $icon, $errors = false) {
 	?>
-	<div class="form-group">
+	<div class="form-group <?= ($errors->has($field->name)) ? 'has-error' : ''; ?>">
 		<?php if (App::environment() != 'production') {
 			print '(' . $field->type . ')';
 		} ?>
@@ -23,7 +23,7 @@ HTML::macro('field', function ($field, $icon, $errors = false) {
 
 		<?php if ($errors && $errors->has()) {
 			foreach ($errors->get($field->name) as $message) {
-				print $message;
+				print "<div class='error'>$message</div>";
 			}
 		} ?>
 

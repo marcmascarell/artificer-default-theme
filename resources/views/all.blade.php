@@ -78,11 +78,7 @@
             </div>
         </div>
 
-        {{ HTML::table($model, $items, $fields, $models[$model['name']]['options'], $sort, $icon,
-            $permit['read'],
-            $permit['update'],
-            $permit['delete'])
-        }}
+        {{ HTML::table($model, $items, $fields, $models[$model['name']]['options'], $sort, $icon) }}
 
         <?php Event::fire('artificer.view.all.after.showList', array($model, $items), $halt = false);  ?>
 

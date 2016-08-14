@@ -32,12 +32,12 @@ class DefaultThemeServiceProvider extends ServiceProvider {
         ], 'public');
 
         Artificer::assetManager()->add([
-            '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
-            '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css',
+            'font-awesome-cdn',
+            'bootstrap-css-cdn',
             'packages/mascame/artificer-default-theme/css/app.css',
             'packages/mascame/artificer-default-theme/css/style.css',
 
-            '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
+            'bootstrap-js-cdn',
             'packages/mascame/artificer-default-theme/js/app.js',
             'packages/mascame/artificer-default-theme/js/artificer.js',
         ]);

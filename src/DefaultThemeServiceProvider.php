@@ -23,7 +23,7 @@ class DefaultThemeServiceProvider extends ServiceProvider {
 
             $this->autoPublishes(function() {
                 $this->publishes([
-                    __DIR__.'/../public' => public_path('packages/mascame/' . $this->name),
+                    __DIR__.'/../public' => public_path('vendor/admin/extensions/' . $this->name),
                 ], 'public');
             });
 
@@ -34,12 +34,12 @@ class DefaultThemeServiceProvider extends ServiceProvider {
                 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css',
 
-                'packages/mascame/artificer-default-theme/css/app.css',
-                'packages/mascame/artificer-default-theme/css/style.css',
+                Artificer::getExtensionsAssetsPath('artificer-default-theme/css/app.css'),
+                Artificer::getExtensionsAssetsPath('artificer-default-theme/css/style.css'),
 
                 'bootstrap-js-cdn',
-                'packages/mascame/artificer-default-theme/js/app.js',
-                'packages/mascame/artificer-default-theme/js/artificer.js',
+                Artificer::getExtensionsAssetsPath('artificer-default-theme/js/app.js'),
+                Artificer::getExtensionsAssetsPath('artificer-default-theme/js/artificer.js'),
             ]);
         });
     }

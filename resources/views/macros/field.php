@@ -2,7 +2,7 @@
 
 HTML::macro('field', function ($field, $icon, $errors = false) {
 	?>
-	<div class="form-group <?= ($errors->has($field->name)) ? 'has-error' : ''; ?>">
+	<div class="form-group <?= ($errors->has($field->field->getName())) ? 'has-error' : ''; ?>">
 		<?php if (App::environment() != 'production') {
 //			print '(' . $field->type . ') > ';
 //			print ($field->isFillable()) ? 'fillable' : 'not-fillable';
@@ -22,8 +22,8 @@ HTML::macro('field', function ($field, $icon, $errors = false) {
 			</div>
 		<?php } ?>
 
-		<?php if ($errors && $errors->has()) {
-			foreach ($errors->get($field->name) as $message) {
+		<?php if ($errors && $errors->has($field->field->getName())) {
+			foreach ($errors->get($field->field->getName()) as $message) {
 				print "<div class='error'>$message</div>";
 			}
 		} ?>

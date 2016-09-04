@@ -62,13 +62,20 @@
                             }
                             ?>
 
-                            <td>{{ $extension->name }}</td>
                             <td>
-                                @if ($extension->isInstalled())
-                                    <a href="{{ route('admin.'.$type.'.uninstall', $extension->slug) }}" class="btn btn-danger btn-md">Uninstall</a>
+                                {{ $extension->name }}
+                            </td>
+                            <td>
+                                @if (\Mascame\Artificer\Artificer::isCoreExtension($extension->namespace))
+                                    <span class="label label-info">Core extension</span>
                                 @else
-                                    <a href="{{ route('admin.'.$type.'.install', $extension->slug) }}" class="btn btn-default btn-md">Install</a>
+                                    @if ($extension->isInstalled())
+                                        <a href="{{ route('admin.'.$type.'.uninstall', $extension->slug) }}" class="btn btn-danger btn-md">Uninstall</a>
+                                    @else
+                                        <a href="{{ route('admin.'.$type.'.install', $extension->slug) }}" class="btn btn-default btn-md">Install</a>
+                                    @endif
                                 @endif
+
                             </td>
                         </tr>
 

@@ -9,10 +9,6 @@
             <?php $i = 1; ?>
             @forelse($packages as $packageName => $package)
 
-                @if (\Mascame\Artificer\Artificer::isCoreExtension($packageName))
-                    @continue
-                @endif
-
                 @include($theme . '.partials._extension')
 
                 @if($i % 3 == 0)

@@ -2,7 +2,7 @@
 
 @section('content-header')
 	<h1>
-		{{ $model['name'] }}
+		{{ $model->name }}
 		<small>Model</small>
 	</h1>
 	<ol class="breadcrumb">
@@ -16,7 +16,7 @@
 				<i class="{{ $icon['models'] }}"></i> {{ ucfirst(Lang::trans('admin::general.models')) }}
 			</a>
 		</li>
-		<li class="active">{{ $model['name'] }}</li>
+		<li class="active">{{ $model->name }}</li>
 	</ol>
 @overwrite
 
@@ -29,7 +29,7 @@
                 <i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('admin::general.filter')) }}
             </button>
 
-            <a href="{{ route('admin.model.create', $model['route']) }}" class="btn btn-primary">
+            <a href="{{ route('admin.model.create', $model->route) }}" class="btn btn-primary">
                 <i class="{{ $icon['new'] }}"></i> {{ ucfirst(Lang::trans('admin::general.new')) }}
             </a>
         </div>
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="box-body">
-                        {!! \Form::open(array('route' => array('admin.model.filter', $model['route']), 'method' => 'get')) !!}
+                        {!! \Form::open(array('route' => array('admin.model.filter', $model->route), 'method' => 'get')) !!}
                             <div class="row">
                                 @foreach($fields as $field)
 
@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        {{ HTML::table($model, $items, $fields, $models[$model['name']]['options'], $sort, $icon) }}
+        {{ HTML::table($model, $items, $fields, \Mascame\Artificer\Artificer::modelManager()->get($model->name)->getOptions(), $sort, $icon) }}
 
         <?php Event::fire('artificer.view.all.after.showList', array($model, $items), $halt = false);  ?>
 

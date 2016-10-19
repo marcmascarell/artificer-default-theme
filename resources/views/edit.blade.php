@@ -2,7 +2,7 @@
 
 @section('content-header')
 	<h1>
-        {{ $model['name'] }}
+        {{ $model->name }}
         <small>Model</small>
     </h1>
     <ol class="breadcrumb">
@@ -16,7 +16,7 @@
                 <i class="{{ $icon['models'] }}"></i> Models
             </a>
         </li>
-        <li class="active">{{ $model['name'] }}</li>
+        <li class="active">{{ $model->name }}</li>
     </ol>
 @overwrite
 
@@ -27,7 +27,7 @@
             {{--'data-file-upload' => URL::route("admin.model.upload", array($model["route"], \Mascame\Artificer\Artificer::getCurrentModelId($items)))--}}
 
 			{!! Form::model($items, array(
-                'route' => array($form_action_route, $model['route'], $items->id),
+                'route' => array($form_action_route, $model->route, $items->id),
                 'class' => "NO-form-inline dropzone",
                 'id' => 'admin-form',
                 'method' => $form_method,

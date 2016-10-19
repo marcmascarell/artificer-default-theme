@@ -113,14 +113,14 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 						<td class="text-center">
 							<div class="btn-group">
 								<?php if ($showEdit) { ?>
-									<a href="<?= route('admin.model.edit', array('slug' => $model['route'], 'id' => $d->id), $absolute = true) ?>"
+									<a href="<?= route('admin.model.edit', array('slug' => $model->route, 'id' => $d->id), $absolute = true) ?>"
 									   type="button" class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.edit') ?>"></i>
 									</a>
 								<?php } ?>
 
 								<?php if ($showView) { ?>
-									<a href="<?= route('admin.model.show', array('slug' => $model['route'], 'id' => $d->id), $absolute = true) ?>" type="button"
+									<a href="<?= route('admin.model.show', array('slug' => $model->route, 'id' => $d->id), $absolute = true) ?>" type="button"
 									   class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.show') ?>"></i>
 									</a>
@@ -128,7 +128,7 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 
 								<?php if ($showDelete) { ?>
 									<a data-method="delete" data-token="<?= csrf_token() ?>"
-									   href="<?= route('admin.model.destroy', array('slug' => $model['route'], 'id' => $d->id), $absolute = true) ?>"
+									   href="<?= route('admin.model.destroy', array('slug' => $model->route, 'id' => $d->id), $absolute = true) ?>"
 									   type="button" class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.delete')  ?>"></i>
 									</a>

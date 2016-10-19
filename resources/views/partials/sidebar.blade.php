@@ -44,11 +44,11 @@
 
 			@foreach ($models as $model)
 
-			    @if ( ! $model['hidden'])
-                    <li class="{{ ('admin.model.all' == Route::currentRouteName() && Route::current()->getParameter('slug') == $model['route']) ? 'active' : '' }}">
-                        <a href="{{ route('admin.model.all', ['slug' => $model['route']]) }}">
+			    @if ( ! $model->hidden)
+                    <li class="{{ ('admin.model.all' == Route::currentRouteName() && Route::current()->getParameter('slug') == $model->route) ? 'active' : '' }}">
+                        <a href="{{ route('admin.model.all', ['slug' => $model->route]) }}">
                             <i class="fa fa-angle-right"></i>
-							{{ $model['title'] }}
+							{{ $model->title }}
                         </a>
                     </li>
                 @endif

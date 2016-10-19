@@ -1,7 +1,7 @@
 @extends($layout)
 
 @section('content')
-<h2>{{ $model['name'] }}</h2>
+<h2>{{ $model->name }}</h2>
 
     <div class="row">
         <div class="col-md-12 text-right">
@@ -37,7 +37,7 @@
             </ul>
 
             <div class="text-right">
-                <a href="{{ route('admin.model.edit', array($model['route'], $fields['id']->value)) }}" class="btn btn-primary">
+                <a href="{{ route('admin.model.edit', array($model->route, $fields['id']->value)) }}" class="btn btn-primary">
                     <i class="{{ $icon['edit'] }}"></i> Edit
                 </a>
             </div>

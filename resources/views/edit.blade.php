@@ -1,3 +1,4 @@
+
 @extends($layout)
 
 @section('content-header')
@@ -36,7 +37,7 @@
 			) !!}
 
 				@foreach ($fields as $field)
-                    @if ( $field->isVisible())
+                    @if ($field->isVisible())
                         {{ HTML::field($field, $icon, $errors) }}
 				    @endif
 				@endforeach

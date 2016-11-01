@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Pagination\Paginator;
 use \Mascame\Artificer\Options\AdminOption;
 use Collective\Html\HtmlBuilder as HTML;
 
@@ -57,16 +56,16 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 			<tr>
 				<?php
 				/**
-				 * @var $field \Mascame\Artificer\Fields\FieldWrapper
+				 * @var $field \Mascame\Artificer\Fields\Field
 				 */
 				foreach ($fields as $field) {
 					if ($field->isVisible()) {
 						?>
 						<th>
-							<a href="<?= URL::current() . '?' . http_build_query(getSort($field->name, $sort)) ?>">
-								<?= \Illuminate\Support\Str::title($field->title) ?>
+							<a href="<?= URL::current() . '?' . http_build_query(getSort($field->getName(), $sort)) ?>">
+								<?= \Illuminate\Support\Str::title($field->getTitle()) ?>
 
-								<?= getSortIcon($field->name, $sort) ?>
+								<?= getSortIcon($field->getName(), $sort) ?>
 							</a>
 						</th>
 					<?php
@@ -83,44 +82,51 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 			<tbody class="sortable">
 
 			<?php
-			foreach ($data as $d) {
+			foreach ($data as $modelData) {
 				?>
-				<tr data-id="<?= $d->id ?>" data-sort-id="<?= $d->sort_id ?>">
+				<tr data-id="<?= $modelData->id ?>" data-sort-id="<?= $modelData->sort_id ?>">
 
-					<?php foreach (array_keys($fields) as $name) {
+					<?php
 						/**
-						 * @var $field \Mascame\Artificer\Fields\FieldWrapper
+						 * @var $field \Mascame\Artificer\Fields\Field
 						 */
-						$field = $fields[$name];
+						foreach ($fields as $name => $field) {
 
-						if ($field->isVisible()) {
-							?>
-							<td>
-								<?php
-								if ($field->isRelation()) {
-									$method = $field->relation->getMethod();
-									$field->show($d->$method);
-								} else {
-									print $field->show($d->$name);
-								}
+							if ($field->isVisible()) {
 								?>
-							</td>
-						<?php
+								<td>
+									<?php
+									// Todo
+//									if ($field->isRelation()) {
+//										$method = $field->relation->getMethod();
+//										$field->show($d->$method);
+//									} else {
+
+									$field->setValue($modelData->$name);
+
+									print $field->show();
+
+//									}
+
+									?>
+								</td>
+							<?php
+							}
 						}
-					} ?>
+					?>
 
 					<?php if ($showEdit || $showDelete || $showView) { ?>
 						<td class="text-center">
 							<div class="btn-group">
 								<?php if ($showEdit) { ?>
-									<a href="<?= route('admin.model.edit', array('slug' => $model->route, 'id' => $d->id), $absolute = true) ?>"
+									<a href="<?= route('admin.model.edit', array('slug' => $model->route, 'id' => $modelData->id), $absolute = true) ?>"
 									   type="button" class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.edit') ?>"></i>
 									</a>
 								<?php } ?>
 
 								<?php if ($showView) { ?>
-									<a href="<?= route('admin.model.show', array('slug' => $model->route, 'id' => $d->id), $absolute = true) ?>" type="button"
+									<a href="<?= route('admin.model.show', array('slug' => $model->route, 'id' => $modelData->id), $absolute = true) ?>" type="button"
 									   class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.show') ?>"></i>
 									</a>
@@ -128,7 +134,7 @@ HTML::macro('table', function ($model, $data = array(), $fields, $options, $sort
 
 								<?php if ($showDelete) { ?>
 									<a data-method="delete" data-token="<?= csrf_token() ?>"
-									   href="<?= route('admin.model.destroy', array('slug' => $model->route, 'id' => $d->id), $absolute = true) ?>"
+									   href="<?= route('admin.model.destroy', array('slug' => $model->route, 'id' => $modelData->id), $absolute = true) ?>"
 									   type="button" class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.delete')  ?>"></i>
 									</a>

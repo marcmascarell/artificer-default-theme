@@ -13,6 +13,6 @@ Set theme at `app/config/admin/admin.php`.`theme` to `artificer-default-theme`
 
 ##License
 
-Original theme is made by almsaeedstudio. 
+This theme is a modified version of [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/index2.html) made by [almsaeedstudio](https://almsaeedstudio.com). 
 
 This package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

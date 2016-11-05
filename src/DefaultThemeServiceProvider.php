@@ -34,11 +34,12 @@ class DefaultThemeServiceProvider extends ServiceProvider {
                 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css',
 
-                Artificer::getExtensionsAssetsPath('artificer-default-theme/css/app.css'),
-                Artificer::getExtensionsAssetsPath('artificer-default-theme/css/style.css'),
+                Artificer::getExtensionsAssetsPath('artificer-default-theme/css/skin-blue.min.css'),
+                Artificer::getExtensionsAssetsPath('artificer-default-theme/css/AdminLTE.min.css'),
+                Artificer::getExtensionsAssetsPath('artificer-default-theme/css/artificer.css'),
 
                 'bootstrap-js-cdn',
-                Artificer::getExtensionsAssetsPath('artificer-default-theme/js/app.js'),
+                Artificer::getExtensionsAssetsPath('artificer-default-theme/js/AdminLTE.min.js'),
                 Artificer::getExtensionsAssetsPath('artificer-default-theme/js/artificer.js'),
             ]);
         });

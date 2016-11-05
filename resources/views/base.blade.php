@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ $main_title }}</title>
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ $appTitle }}</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-        @if (! $standalone)
-            {!! \Mascame\Artificer\Artificer::assetManager()->css() !!}
-            {!! \Mascame\Artificer\Artificer::assetManager()->js() !!}
-        @endif
+  @if (! $standalone)
+    {!! \Mascame\Artificer\Artificer::assetManager()->css() !!}
+    {!! \Mascame\Artificer\Artificer::assetManager()->js() !!}
+  @endif
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
 
-    </head>
-    <body class="skin-blue fixed @if ($standalone) {{ "standalone" }} @else {{ "full-view" }} @endif">
-        <!-- header logo: style can be found in header.less -->
-        @section('header')
-            <header class="header">
-                @include($theme . '.partials.header')
-            </header>
-        @show
+  <div class="wrapper">
 
-        <div class="wrapper row-offcanvas row-offcanvas-left">
-            <!-- Left side column. contains the logo and sidebar -->
+    @section('header')
+      <header class="main-header">
+        @include($theme . '.partials.header')
+      </header>
+    @show
 
-            @section('sidebar')
-            <aside class="left-side sidebar-offcanvas">
-                <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
-                    @include($theme . '.partials.sidebar')
-                </section>
-                <!-- /.sidebar -->
-            </aside>
-            @show
+    @section('sidebar-left')
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        @include($theme . '.partials.sidebar-left')
+      </aside>
+    @show
 
-            <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">
-                <!-- Main content -->
-                <section class="content-header">
-                    @include($theme . '.partials.content-header')
-                </section>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        @include($theme . '.partials.content-header')
+      </section>
 
-                <!-- Content Header (Page header) -->
-                <section class="content">
-                    <div class="notifications">
-{{--                        {{ \Mascame\Notify\Notify::all() }}--}}
-                    </div>
+      <!-- Main content -->
+      <section class="content">
+        @yield('content')
+      </section>
+      <!-- /.content -->
+    </div>
 
-					@yield('content')
-                </section><!-- /.content -->
+    <!-- /.content-wrapper -->
+    @section('footer')
+      <footer class="main-footer hidden">
+          <div class="pull-right hidden-xs">
+            <b>Version</b> 2.3.8
+          </div>
+          <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+          reserved.
+        </footer>
+    @show
 
-            </aside><!-- /.right-side -->
-        </div><!-- ./wrapper -->
-    </body>
+    @section('sidebar-right')
+        @include($theme . '.partials.sidebar-right')
+    @show
+
+  </div>
+  <!-- ./wrapper -->
+
+</body>
 </html>

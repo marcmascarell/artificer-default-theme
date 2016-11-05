@@ -12,7 +12,7 @@
       </li>
     @endforeach
 
-    <li class="treeview active">
+    <li class="treeview {{ isset($model) ? 'active' : '' }}">
       <a href="#">
         <i class="fa fa-th"></i>
         <span>Models</span>
@@ -27,7 +27,7 @@
             <li class="{{ ('admin.model.all' == Route::currentRouteName() && Route::current()->getParameter('slug') == $model->route) ? 'active' : '' }}">
               <a href="{{ route('admin.model.all', ['slug' => $model->route]) }}">
                 <i class="fa fa-angle-right"></i>
-                {{ $model->title }}
+                <span>{{ $model->title }}</span>
               </a>
             </li>
           @endif

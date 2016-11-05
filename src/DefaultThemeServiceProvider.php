@@ -1,29 +1,31 @@
-<?php namespace Mascame\Artificer;
+<?php
+
+namespace Mascame\Artificer;
 
 use Illuminate\Support\ServiceProvider;
 
-class DefaultThemeServiceProvider extends ServiceProvider {
+class DefaultThemeServiceProvider extends ServiceProvider
+{
+    use AutoPublishable;
 
-	use AutoPublishable;
-	
     protected $name = 'artificer-default-theme';
 
-	/**
-	 * Bootstrap the application events.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-	    Artificer::registerTheme($this->name, function() {
-            require_once __DIR__ . '/../resources/views/macros/table.php';
-            require_once __DIR__ . '/../resources/views/macros/field.php';
+    /**
+     * Bootstrap the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Artificer::registerTheme($this->name, function () {
+            require_once __DIR__.'/../resources/views/macros/table.php';
+            require_once __DIR__.'/../resources/views/macros/field.php';
 
             $this->loadViewsFrom(__DIR__.'/../resources/views', $this->name);
 
-            $this->autoPublishes(function() {
+            $this->autoPublishes(function () {
                 $this->publishes([
-                    __DIR__.'/../public' => public_path('vendor/admin/extensions/' . $this->name),
+                    __DIR__.'/../public' => public_path('vendor/admin/extensions/'.$this->name),
                 ], 'public');
             });
 

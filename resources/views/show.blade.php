@@ -1,19 +1,32 @@
 @extends($layout)
 
+@section('content-header')
+    <h1>
+        {{ $model->name }}
+        <small>Model</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <i class="{{ $icon['dashboard'] }}"></i> Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="{{ $icon['models'] }}"></i> Models
+            </a>
+        </li>
+        <li class="active">{{ $model->name }}</li>
+    </ol>
+@overwrite
+
 @section('content')
-<h2>{{ $model->name }}</h2>
 
-    <div class="row">
-        <div class="col-md-12 text-right">
-
-
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
-            <ul class="list-group">
-                <li class="list-group-item">
+            <div class="box">
+                <div class="box-body">
                 @foreach ($fields as $field)
                     @if ($field->isVisible())
                         <ul class="list-group">
@@ -33,8 +46,8 @@
                         </ul>
                     @endif
                 @endforeach
-                </li>
-            </ul>
+                </div>
+            </div>
 
             <div class="text-right">
                 <a href="{{ route('admin.model.edit', array($model->route, $fields['id']->value)) }}" class="btn btn-primary">

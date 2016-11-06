@@ -28,19 +28,23 @@
             {{--'data-file-upload' => URL::route("admin.model.upload", array($model["route"], \Mascame\Artificer\Artificer::getCurrentModelId($items)))--}}
 
 			{!! Form::model($items, array(
-                'route' => array($form_action_route, $model->route, $items->id),
-                'class' => "NO-form-inline dropzone",
+                'route' => array($formActionRoute, $model->route, $items->id),
+                'class' => "",
                 'id' => 'admin-form',
-                'method' => $form_method,
+                'method' => $formMethod,
                 'files' => true,
                 )
 			) !!}
 
-				@foreach ($fields as $field)
-                    @if ($field->isVisible())
-                        {{ HTML::field($field, $icon, $errors) }}
-				    @endif
-				@endforeach
+                <div class="box">
+                    <div class="box-body">
+                        @foreach ($fields as $field)
+                            @if ($field->isVisible())
+                                {{ HTML::field($field, $icon, $errors) }}
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
 
                 <div class="text-right">
                     <button class="btn btn-primary" name="_save" type="submit" value="Desar">
@@ -48,8 +52,9 @@
                     </button>
                     {{--{{ Form::submit('Desar', array('class' => "btn btn-primary", "name" => "_save")) }}--}}
                     {{--{{ Form::submit('Desar i afegir-ne un de nou', array('class' => "btn btn-default", "name" => "_addanother")) }}--}}
-{{--                    {{ Form::submit('Desar i continuar editant', array('class' => "btn btn-default", "name" => "_continue")) }}--}}
+                    {{--                    {{ Form::submit('Desar i continuar editant', array('class' => "btn btn-default", "name" => "_continue")) }}--}}
                 </div>
+
 
 			{!! Form::close() !!}
 		</div>

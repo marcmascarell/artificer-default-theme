@@ -5,3 +5,14 @@
 body > .main-header .logo {
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+.notifications {
+  display: flex;
+  justify-content: center;
+}
+
+.alert {
+  position: absolute;
+  top: 25px;
+  z-index: 10000;
+}

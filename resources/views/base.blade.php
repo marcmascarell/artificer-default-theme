@@ -41,7 +41,11 @@
 
       <!-- Main content -->
       <section class="content">
-        @yield('content')
+          <div class="notifications text-center">
+              @include('flash::message')
+          </div>
+
+          @yield('content')
       </section>
       <!-- /.content -->
     </div>

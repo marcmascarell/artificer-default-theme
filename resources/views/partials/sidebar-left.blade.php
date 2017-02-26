@@ -23,11 +23,11 @@
 
         @foreach ($models as $model)
 
-          @if ( ! $model->hidden)
+          @if ( ! $model->settings()->hidden)
             <li class="{{ ('admin.model.all' == Route::currentRouteName() && Route::current()->getParameter('slug') == $model->route) ? 'active' : '' }}">
               <a href="{{ route('admin.model.all', ['slug' => $model->route]) }}">
                 <i class="fa fa-angle-right"></i>
-                <span>{{ $model->title }}</span>
+                <span>{{ $model->settings()->title }}</span>
               </a>
             </li>
           @endif

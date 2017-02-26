@@ -16,3 +16,7 @@ body > .main-header .logo {
   top: 25px;
   z-index: 10000;
 }
+
+.checkbox-inline:first-child, .radio-inline:first-child {
+  padding-left: 0;
+}

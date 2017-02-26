@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        {{ HTML::table($model, $items, $fields, \Mascame\Artificer\Artificer::modelManager()->get($model->name)->getOptions(), $sort, $icon) }}
+        {{ HTML::table($model, $items, $fields, \Mascame\Artificer\Artificer::modelManager()->get($model->name)->settings()->getOptions(), $sort, $icon) }}
 
         <?php Event::fire('artificer.view.all.after.showList', array($model, $items), $halt = false);  ?>
 

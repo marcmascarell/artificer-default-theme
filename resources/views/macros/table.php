@@ -1,7 +1,7 @@
 <?php
 
-use \Mascame\Artificer\Options\AdminOption;
 use Collective\Html\HtmlBuilder as HTML;
+use \Mascame\Artificer\Options\AdminOption;
 
 function isHidden($key, $hidden)
 {

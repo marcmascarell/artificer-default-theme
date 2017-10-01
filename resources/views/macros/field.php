@@ -21,7 +21,7 @@ HTML::macro('field', function ($field, $icon, $errors = false) {
 				&nbsp;
 				<em><?= $field->wiki ?></em>
 			</div>
-		<?php 
+		<?php
     } ?>
 
 		<?php if ($errors && $errors->has($field->getName())) {
@@ -41,5 +41,4 @@ HTML::macro('field', function ($field, $icon, $errors = false) {
 		<?php Event::fire('artificer.view.edit.after.output', $field, $halt = false); ?>
 	</div>
 	<?php
-
 });

@@ -20,3 +20,11 @@ body > .main-header .logo {
 .checkbox-inline:first-child, .radio-inline:first-child {
   padding-left: 0;
 }
+
+.el-table__fixed {
+  overflow-y: hidden;
+}
+
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}

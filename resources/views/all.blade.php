@@ -35,52 +35,63 @@
         </div>
     </div>
 
-    @if ( ! $items->isEmpty())
-        <?php Event::fire('artificer.view.all.before.showList', array($model, $items), $halt = false); ?>
+    @if ( ! $values->isEmpty())
 
-        <div class="row">
-            <div class="col-md-12 filters">
 
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">
-                        <i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('admin::general.filter')) }}
-                        </h3>
-                    </div>
+        <model-table :fields="model.fields"
+                     :values="model.values"
+                     :routes="model.routes">
+        </model-table>
 
-                    <div class="box-body">
-                        {!! \Form::open(array('route' => array('admin.model.filter', $model->route), 'method' => 'get')) !!}
-                            <div class="row">
-                                @foreach($fields as $field)
+        <?php
+//        Event::fire('artificer.view.all.before.showList', array($model, $items), $halt = false);
+        ?>
 
-                                    @if ($field->hasFilter())
-                                        <div class="col-md-4">
-                                            {{ $field->title }}
-                                            {!! $field->displayFilter() !!}
-                                        </div>
-                                    @endif
+        {{--<div class="row">--}}
+            {{--<div class="col-md-12 filters">--}}
 
-                                @endforeach
-                            </div>
+                {{--<div class="box">--}}
+                    {{--<div class="box-header">--}}
+                        {{--<h3 class="box-title">--}}
+                        {{--<i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('admin::general.filter')) }}--}}
+                        {{--</h3>--}}
+                    {{--</div>--}}
 
-                            <br>
+                    {{--<div class="box-body">--}}
+                        {{--{!! \Form::open(array('route' => array('admin.model.filter', $model->route), 'method' => 'get')) !!}--}}
+                            {{--<div class="row">--}}
+                                {{--@foreach($fields as $field)--}}
 
-                            <div class="text-right">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="{{ $icon['search'] }}"></i>
-                                </button>
-                            </div>
+                                    {{--@if ($field['hasFilter'])--}}
+                                        {{--<div class="col-md-4">--}}
+                                            {{--{{ $field['title'] }}--}}
+                                            {{--{!! $field->displayFilter() !!}--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
 
-                        {!! Form::close() !!}
-                    </div>
-                </div>
+                                {{--@endforeach--}}
+                            {{--</div>--}}
 
-            </div>
-        </div>
+                            {{--<br>--}}
 
-        {{ HTML::table($model, $items, $fields, \Mascame\Artificer\Artificer::modelManager()->get($model->name)->settings()->getOptions(), $sort, $icon) }}
+                            {{--<div class="text-right">--}}
+                                {{--<button type="submit" class="btn btn-default">--}}
+                                    {{--<i class="{{ $icon['search'] }}"></i>--}}
+                                {{--</button>--}}
+                            {{--</div>--}}
 
-        <?php Event::fire('artificer.view.all.after.showList', array($model, $items), $halt = false);  ?>
+                        {{--{!! Form::close() !!}--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+            {{--</div>--}}
+        {{--</div>--}}
+
+{{--        {{ HTML::table($model, $items, $fields, \Mascame\Artificer\Artificer::modelManager()->get($model->name)->settings()->getOptions(), $sort, $icon) }}--}}
+
+        <?php
+//        Event::fire('artificer.view.all.after.showList', array($model, $items), $halt = false);
+        ?>
 
     @else
         {{ ucfirst(Lang::trans('admin::general.no results')) }}

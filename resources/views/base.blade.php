@@ -57,29 +57,37 @@
             <!-- Content Header (Page header) -->
 
             <section class="content-header">
-                @section('content-header')
-                    @include($theme . '.partials.content-header')
-                @show
+                <h1>
+                    Extensions
+                    <small>Control panel</small>
+                </h1>
+
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <li class="active">Extensions</li>
+                </ol>
+
+                {{--<ol class="breadcrumb">--}}
+                    {{--<li>--}}
+                        {{--<a href="#">--}}
+                            {{--<i class="{{ $icon['dashboard'] }}"></i> {{ ucfirst(Lang::trans('admin::general.dashboard')) }}--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="#">--}}
+                            {{--<i class="{{ $icon['models'] }}"></i> {{ ucfirst(Lang::trans('admin::general.models')) }}--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li class="active">{{ $model->name }}</li>--}}
+                {{--</ol>--}}
             </section>
 
             <modal></modal>
 
             <!-- Main content -->
             <section class="content">
-                <div v-if="$route.name === 'index'" class="row">
-                    <div class="col-md-12 text-right main-buttons">
-
-                        {{--<button class="btn btn-default" data-toggle="filter">--}}
-                            {{--<i class="{{ $icon['filter'] }}"></i> {{ ucfirst(Lang::trans('admin::general.filter')) }}--}}
-                        {{--</button>--}}
-
-                        <router-link :to="{name: 'create', params: {model: $route.params.model}}" class="btn btn-primary">
-                            <i class="{{ $icon['new'] }}"></i> {{ ucfirst(Lang::trans('admin::general.new')) }}
-                        </router-link>
-                    </div>
-                </div>
-
                 <router-view></router-view>
+
                 @yield('content')
             </section>
             <!-- /.content -->
@@ -95,11 +103,6 @@
                 reserved.
             </footer>
         @show
-
-        @section('sidebar-right')
-            @include($theme . '.partials.sidebar-right')
-        @show
-
     </div>
     <!-- ./wrapper -->
 

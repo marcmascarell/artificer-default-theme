@@ -18,14 +18,14 @@
 
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th>
-                            Provides {{ $type }}
-                        </th>
-                        <th>
-                        </th>
+                        <tr>
+                            <th>
+                                Provides {{ $type }}
+                            </th>
+                            <th>
+                            </th>
 
-                    </tr>
+                        </tr>
                     </thead>
 
                     <tbody>

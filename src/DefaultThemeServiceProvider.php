@@ -18,9 +18,6 @@ class DefaultThemeServiceProvider extends ServiceProvider
     public function boot()
     {
         Artificer::registerTheme($this->name, function () {
-            require_once __DIR__.'/../resources/views/macros/table.php';
-            require_once __DIR__.'/../resources/views/macros/field.php';
-
             $this->loadViewsFrom(__DIR__.'/../resources/views', $this->name);
 
             $this->autoPublishes(function () {
@@ -42,7 +39,6 @@ class DefaultThemeServiceProvider extends ServiceProvider
 
                 'bootstrap-js-cdn',
                 Artificer::getExtensionsAssetsPath('artificer-default-theme/js/AdminLTE.min.js'),
-                Artificer::getExtensionsAssetsPath('artificer-default-theme/js/artificer.js'),
             ]);
         });
     }

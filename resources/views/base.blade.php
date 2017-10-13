@@ -11,32 +11,11 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     {!! \Mascame\Artificer\Artificer::assetManager()->css() !!}
+
+    @phpToJS
+    @routes
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-
-<script>
-    window.AppData = {
-        icons: {!! json_encode($icon) !!},
-        models: {!! json_encode($models) !!},
-        routes: {
-            store: "{{ route('admin.model.store', ['slug' => ':model'], $absolute = true) }}",
-            update: "{{ route('admin.model.update', ['slug' => ':model', 'id' => ':id'], $absolute = true) }}",
-            edit: "{{ route('admin.model.edit', ['slug' => ':model', 'id' => ':id'], $absolute = true) }}",
-            show: "{{ route('admin.model.show', ['slug' => ':model', 'id' => ':id'], $absolute = true) }}",
-            destroy: "{{ route('admin.model.destroy', ['slug' => ':model', 'id' => ':id'], $absolute = true) }}",
-        },
-    };
-
-    @if (isset($fields))
-        window.AppData.model = {
-            fields: {!! json_encode($fields) !!},
-            values: {!! json_encode($values) !!},
-        };
-
-        window.AppData.method = '{{ $formMethod ?? null }}';
-        window.AppData.action = '{{ isset($formActionRoute) ? route($formActionRoute, ['slug' => $model->route, 'id' => $values->id]) : null }}';
-    @endif
-</script>
 
     <div id="app" class="wrapper">
         @section('header')

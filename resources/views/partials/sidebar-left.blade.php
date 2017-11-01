@@ -6,7 +6,7 @@
 
             @foreach ($menu as $menuItem)
                 <el-menu-item index="0">
-                    <a href="{{ URL::route($menuItem['route']) }}">
+                    <a href="{{ URL::route($menuItem['route']) }}" target="{{ $menuItem['target'] ?? null }}">
                         <i class="{{ $menuItem['icon'] }}" style="margin-right: .4em"></i>
 
                         <span slot="title">

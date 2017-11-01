@@ -85,6 +85,8 @@
     </div>
     <!-- ./wrapper -->
 
-    {!! \Mascame\Artificer\Artificer::assetManager()->js() !!}
+    @section('footerScripts')
+        {!! \Mascame\Artificer\Artificer::assetManager()->js() !!}
+    @show
 </body>
 </html>

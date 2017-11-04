@@ -6,7 +6,9 @@
 
             @foreach ($menu as $menuItem)
                 <el-menu-item index="0">
-                    <a href="{{ URL::route($menuItem['route']) }}" target="{{ $menuItem['target'] ?? null }}">
+                    <a {!! isset($menuItem['iframe']) && $menuItem['iframe'] ? '@click.prevent="openIframe(\''. URL::route($menuItem['route']) .'\')"' : '@click="iframe = null"' !!}
+                       href="{{ URL::route($menuItem['route']) }}"
+                       target="{{ $menuItem['target'] ?? null }}">
                         <i class="{{ $menuItem['icon'] }}" style="margin-right: .4em"></i>
 
                         <span slot="title">
@@ -22,7 +24,7 @@
                     <i class="fa fa-th" style="margin-right: .4em"></i> Models
                 </template>
                 @foreach ($models as $key => $model)
-                    <router-link :to="{name: 'index', params: {model: '{{ $model['slug'] }}'}}">
+                    <router-link :to="{name: 'index', params: {model: '{{ $model['slug'] }}'}}" @click.native="iframe = null">
                         <el-menu-item index="1-{{ $key }}">{{ $model['title'] }}</el-menu-item>
                     </router-link>
                 @endforeach

@@ -32,39 +32,16 @@
         @show
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-
-            <section class="content-header">
-                <h1>
-                    Extensions
-                    <small>Control panel</small>
-                </h1>
-
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li class="active">Extensions</li>
-                </ol>
-
-                {{--<ol class="breadcrumb">--}}
-                    {{--<li>--}}
-                        {{--<a href="#">--}}
-                            {{--<i class="{{ $icon['dashboard'] }}"></i> {{ ucfirst(Lang::trans('admin::general.dashboard')) }}--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="#">--}}
-                            {{--<i class="{{ $icon['models'] }}"></i> {{ ucfirst(Lang::trans('admin::general.models')) }}--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="active">{{ $model->name }}</li>--}}
-                {{--</ol>--}}
-            </section>
-
+        <div class="content-wrapper" :style="iframe ? 'display: flex; flex-direction: column;' : null">
             <modal></modal>
 
             <!-- Main content -->
-            <section class="content">
+            <section v-if="iframe" class="content" style="padding: 0;flex: 1; display: flex; width: 100%; flex-direction: column;">
+                <iframe v-if="iframe" style="flex: 1; width: 100%; height: 100%"
+                        :src="iframe"
+                        frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></iframe>
+            </section>
+            <section v-else class="content">
                 <router-view></router-view>
 
                 @yield('content')

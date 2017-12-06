@@ -8,15 +8,11 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": "4.2.*"
+        "php": ">=7.0.0"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
-        "psr-0": {
-            "Mascame\\ArtificerDefaultTheme\\": "src/"
+        "psr-4": {
+            "Mascame\\Artificer\\": "src/"
         }
     },
     "minimum-stability": "stable"

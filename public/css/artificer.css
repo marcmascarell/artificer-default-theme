@@ -1,0 +1,16 @@
+body > .main-header .logo {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.el-table__fixed {
+  overflow-y: hidden;
+}
+
+.radio.el-radio  {
+  display: inline-block;
+}
+
+/* Specified on Element documentation */
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}

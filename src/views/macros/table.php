@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Paginator;
-use \Mascame\Artificer\Options\AdminOption;
+use Mascame\Artificer\Options\AdminOption;
 
 function isHidden($key, $hidden)
 {
@@ -62,7 +62,6 @@ HTML::macro('table', function ($model, $data, $fields, $options, $sort,
 							</a>
 						</th>
 					<?php
-
         }
     } ?>
 
@@ -70,7 +69,7 @@ HTML::macro('table', function ($model, $data, $fields, $options, $sort,
 				<?php if ($showEdit || $showDelete || $showView) {
         ?>
 					<th></th>
-				<?php 
+				<?php
     } ?>
 			</tr>
 			</thead>
@@ -95,7 +94,6 @@ HTML::macro('table', function ($model, $data, $fields, $options, $sort,
                                 } ?>
 							</td>
 						<?php
-
                     }
                 } ?>
 
@@ -109,7 +107,7 @@ HTML::macro('table', function ($model, $data, $fields, $options, $sort,
 									   type="button" class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.edit') ?>"></i>
 									</a>
-								<?php 
+								<?php
                     } ?>
 
 								<?php if ($showView) {
@@ -118,7 +116,7 @@ HTML::macro('table', function ($model, $data, $fields, $options, $sort,
 									   class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.show') ?>"></i>
 									</a>
-								<?php 
+								<?php
                     } ?>
 
 								<?php if ($showDelete) {
@@ -128,20 +126,19 @@ HTML::macro('table', function ($model, $data, $fields, $options, $sort,
 									   type="button" class="btn btn-default">
 										<i class="<?= AdminOption::get('icons.delete')  ?>"></i>
 									</a>
-								<?php 
+								<?php
                     } ?>
 							</div>
 						</td>
 
-					<?php 
+					<?php
                 } ?>
 				</tr>
-			<?php 
+			<?php
             } ?>
 
 			</tbody>
 		</table>
 	</div>
 <?php
-
 });
